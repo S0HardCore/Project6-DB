@@ -1,0 +1,12 @@
+c:\users\oleg\documents\visual studio 2013\Projects\Course\Course\bin\Debug\Course.exe.config
+c:\users\oleg\documents\visual studio 2013\Projects\Course\Course\bin\Debug\Course.accdb
+c:\users\oleg\documents\visual studio 2013\Projects\Course\Course\bin\Debug\Course.exe
+c:\users\oleg\documents\visual studio 2013\Projects\Course\Course\bin\Debug\Course.pdb
+c:\users\oleg\documents\visual studio 2013\Projects\Course\Course\obj\Debug\Course.Form1.resources
+c:\users\oleg\documents\visual studio 2013\Projects\Course\Course\obj\Debug\Course.Properties.Resources.resources
+c:\users\oleg\documents\visual studio 2013\Projects\Course\Course\obj\Debug\Course.csproj.GenerateResource.Cache
+c:\users\oleg\documents\visual studio 2013\Projects\Course\Course\obj\Debug\Course.exe
+c:\users\oleg\documents\visual studio 2013\Projects\Course\Course\obj\Debug\Course.pdb
+c:\users\oleg\documents\visual studio 2013\Projects\Course\Course\obj\Debug\Course.Form2.resources
+C:\Users\Oleg\documents\visual studio 2013\Projects\Course\Course\obj\Debug\Course.csprojResolveAssemblyReference.cache
+C:\Users\Oleg\documents\visual studio 2013\Projects\Course\Course\obj\Debug\Course.Form3.resources
