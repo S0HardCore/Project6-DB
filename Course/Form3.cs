@@ -106,7 +106,7 @@ namespace Course
             if (CheckBoxRegTime.Checked)
                 CombinedFilter += (CheckBoxName.Checked || CheckBoxDescription.Checked || CheckBoxFIO.Checked || CheckBoxPhone.Checked
                     || CheckBoxFoundTime.Checked || CheckBoxSpot.Checked ? " AND " : "") + FiltersText[6];
-            MessageBox.Show(CombinedFilter);
+            //MessageBox.Show(CombinedFilter);
             return CombinedFilter;
         }
 
@@ -236,6 +236,26 @@ namespace Course
             находкиBindingSource.Filter = CombineFilter();
             if (!CheckBoxSpot.Checked)
                 FilterSpot.Text = "";
+        }
+
+        private void FilterSwitchButtonClick(object sender, EventArgs e)
+        {
+            if (!FiltersEnabled)
+            {
+                this.Width += 75;
+                FormSwitchButton.Location = new Point(FormSwitchButton.Location.X + 37, FormSwitchButton.Location.Y);
+                UpdateChangesButton.Location = new Point(UpdateChangesButton.Location.X + 37, UpdateChangesButton.Location.Y);
+                FiltersEnabled = CheckBoxSpot.Visible = CheckBoxDescription.Visible = CheckBoxFIO.Visible = CheckBoxFoundTime.Visible
+                    = CheckBoxName.Visible = CheckBoxPhone.Visible = CheckBoxRegTime.Visible = true;
+            }
+            else
+            {
+                this.Width -= 75;
+                FormSwitchButton.Location = new Point(FormSwitchButton.Location.X - 37, FormSwitchButton.Location.Y);
+                UpdateChangesButton.Location = new Point(UpdateChangesButton.Location.X - 37, UpdateChangesButton.Location.Y);
+                FiltersEnabled = CheckBoxSpot.Visible = CheckBoxDescription.Visible = CheckBoxFIO.Visible = CheckBoxFoundTime.Visible
+                    = CheckBoxName.Visible = CheckBoxPhone.Visible = CheckBoxRegTime.Visible = false;
+            }
         }
 
     }

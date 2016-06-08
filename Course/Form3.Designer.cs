@@ -31,6 +31,15 @@
             this.components = new System.ComponentModel.Container();
             this.потериTableAdapter1 = new Course.CourseDataSet1TableAdapters.ПотериTableAdapter();
             this.LostsTable = new System.Windows.Forms.DataGridView();
+            this.кодDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.названиеDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.описаниеDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.местоПотериDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.времяПотериDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.фИОDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.телефонDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.времяОбращенияDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.находкиBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.courseDataSet11 = new Course.CourseDataSet1();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.учетнаяЗаписьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,20 +72,11 @@
             this.FilterDescription = new System.Windows.Forms.TextBox();
             this.NameLabel = new System.Windows.Forms.Label();
             this.FilterName = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.находкиBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.кодDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.названиеDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.описаниеDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.местоПотериDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.времяПотериDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.фИОDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.телефонDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.времяОбращенияDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FormSwitchButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.LostsTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.находкиBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.courseDataSet11)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.находкиBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // потериTableAdapter1
@@ -107,6 +107,75 @@
             this.LostsTable.ReadOnly = true;
             this.LostsTable.Size = new System.Drawing.Size(900, 284);
             this.LostsTable.TabIndex = 0;
+            // 
+            // кодDataGridViewTextBoxColumn
+            // 
+            this.кодDataGridViewTextBoxColumn.DataPropertyName = "Код";
+            this.кодDataGridViewTextBoxColumn.HeaderText = "Код";
+            this.кодDataGridViewTextBoxColumn.Name = "кодDataGridViewTextBoxColumn";
+            this.кодDataGridViewTextBoxColumn.ReadOnly = true;
+            this.кодDataGridViewTextBoxColumn.Width = 53;
+            // 
+            // названиеDataGridViewTextBoxColumn
+            // 
+            this.названиеDataGridViewTextBoxColumn.DataPropertyName = "Название";
+            this.названиеDataGridViewTextBoxColumn.HeaderText = "Название";
+            this.названиеDataGridViewTextBoxColumn.Name = "названиеDataGridViewTextBoxColumn";
+            this.названиеDataGridViewTextBoxColumn.ReadOnly = true;
+            this.названиеDataGridViewTextBoxColumn.Width = 84;
+            // 
+            // описаниеDataGridViewTextBoxColumn
+            // 
+            this.описаниеDataGridViewTextBoxColumn.DataPropertyName = "Описание";
+            this.описаниеDataGridViewTextBoxColumn.HeaderText = "Описание";
+            this.описаниеDataGridViewTextBoxColumn.Name = "описаниеDataGridViewTextBoxColumn";
+            this.описаниеDataGridViewTextBoxColumn.ReadOnly = true;
+            this.описаниеDataGridViewTextBoxColumn.Width = 88;
+            // 
+            // местоПотериDataGridViewTextBoxColumn
+            // 
+            this.местоПотериDataGridViewTextBoxColumn.DataPropertyName = "Место потери";
+            this.местоПотериDataGridViewTextBoxColumn.HeaderText = "Место потери";
+            this.местоПотериDataGridViewTextBoxColumn.Name = "местоПотериDataGridViewTextBoxColumn";
+            this.местоПотериDataGridViewTextBoxColumn.ReadOnly = true;
+            this.местоПотериDataGridViewTextBoxColumn.Width = 103;
+            // 
+            // времяПотериDataGridViewTextBoxColumn
+            // 
+            this.времяПотериDataGridViewTextBoxColumn.DataPropertyName = "Время потери";
+            this.времяПотериDataGridViewTextBoxColumn.HeaderText = "Время потери";
+            this.времяПотериDataGridViewTextBoxColumn.Name = "времяПотериDataGridViewTextBoxColumn";
+            this.времяПотериDataGridViewTextBoxColumn.ReadOnly = true;
+            this.времяПотериDataGridViewTextBoxColumn.Width = 104;
+            // 
+            // фИОDataGridViewTextBoxColumn
+            // 
+            this.фИОDataGridViewTextBoxColumn.DataPropertyName = "ФИО";
+            this.фИОDataGridViewTextBoxColumn.HeaderText = "ФИО";
+            this.фИОDataGridViewTextBoxColumn.Name = "фИОDataGridViewTextBoxColumn";
+            this.фИОDataGridViewTextBoxColumn.ReadOnly = true;
+            this.фИОDataGridViewTextBoxColumn.Width = 59;
+            // 
+            // телефонDataGridViewTextBoxColumn
+            // 
+            this.телефонDataGridViewTextBoxColumn.DataPropertyName = "Телефон";
+            this.телефонDataGridViewTextBoxColumn.HeaderText = "Телефон";
+            this.телефонDataGridViewTextBoxColumn.Name = "телефонDataGridViewTextBoxColumn";
+            this.телефонDataGridViewTextBoxColumn.ReadOnly = true;
+            this.телефонDataGridViewTextBoxColumn.Width = 85;
+            // 
+            // времяОбращенияDataGridViewTextBoxColumn
+            // 
+            this.времяОбращенияDataGridViewTextBoxColumn.DataPropertyName = "Время обращения";
+            this.времяОбращенияDataGridViewTextBoxColumn.HeaderText = "Время обращения";
+            this.времяОбращенияDataGridViewTextBoxColumn.Name = "времяОбращенияDataGridViewTextBoxColumn";
+            this.времяОбращенияDataGridViewTextBoxColumn.ReadOnly = true;
+            this.времяОбращенияDataGridViewTextBoxColumn.Width = 124;
+            // 
+            // находкиBindingSource
+            // 
+            this.находкиBindingSource.DataMember = "Потери";
+            this.находкиBindingSource.DataSource = this.courseDataSet11;
             // 
             // courseDataSet11
             // 
@@ -265,6 +334,7 @@
             this.FilterSwitchButton.TabIndex = 29;
             this.FilterSwitchButton.Text = "Фильтр";
             this.FilterSwitchButton.UseVisualStyleBackColor = true;
+            this.FilterSwitchButton.Click += new System.EventHandler(this.FilterSwitchButtonClick);
             // 
             // label1
             // 
@@ -428,91 +498,22 @@
             this.FilterName.TabIndex = 37;
             this.FilterName.TextChanged += new System.EventHandler(this.FilterNameTextChanged);
             // 
-            // button1
+            // FormSwitchButton
             // 
-            this.button1.Location = new System.Drawing.Point(934, 381);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(95, 23);
-            this.button1.TabIndex = 53;
-            this.button1.Text = "Находки";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.FindsButtonClick);
-            // 
-            // находкиBindingSource
-            // 
-            this.находкиBindingSource.DataMember = "Потери";
-            this.находкиBindingSource.DataSource = this.courseDataSet11;
-            // 
-            // кодDataGridViewTextBoxColumn
-            // 
-            this.кодDataGridViewTextBoxColumn.DataPropertyName = "Код";
-            this.кодDataGridViewTextBoxColumn.HeaderText = "Код";
-            this.кодDataGridViewTextBoxColumn.Name = "кодDataGridViewTextBoxColumn";
-            this.кодDataGridViewTextBoxColumn.ReadOnly = true;
-            this.кодDataGridViewTextBoxColumn.Width = 53;
-            // 
-            // названиеDataGridViewTextBoxColumn
-            // 
-            this.названиеDataGridViewTextBoxColumn.DataPropertyName = "Название";
-            this.названиеDataGridViewTextBoxColumn.HeaderText = "Название";
-            this.названиеDataGridViewTextBoxColumn.Name = "названиеDataGridViewTextBoxColumn";
-            this.названиеDataGridViewTextBoxColumn.ReadOnly = true;
-            this.названиеDataGridViewTextBoxColumn.Width = 84;
-            // 
-            // описаниеDataGridViewTextBoxColumn
-            // 
-            this.описаниеDataGridViewTextBoxColumn.DataPropertyName = "Описание";
-            this.описаниеDataGridViewTextBoxColumn.HeaderText = "Описание";
-            this.описаниеDataGridViewTextBoxColumn.Name = "описаниеDataGridViewTextBoxColumn";
-            this.описаниеDataGridViewTextBoxColumn.ReadOnly = true;
-            this.описаниеDataGridViewTextBoxColumn.Width = 88;
-            // 
-            // местоПотериDataGridViewTextBoxColumn
-            // 
-            this.местоПотериDataGridViewTextBoxColumn.DataPropertyName = "Место потери";
-            this.местоПотериDataGridViewTextBoxColumn.HeaderText = "Место потери";
-            this.местоПотериDataGridViewTextBoxColumn.Name = "местоПотериDataGridViewTextBoxColumn";
-            this.местоПотериDataGridViewTextBoxColumn.ReadOnly = true;
-            this.местоПотериDataGridViewTextBoxColumn.Width = 103;
-            // 
-            // времяПотериDataGridViewTextBoxColumn
-            // 
-            this.времяПотериDataGridViewTextBoxColumn.DataPropertyName = "Время потери";
-            this.времяПотериDataGridViewTextBoxColumn.HeaderText = "Время потери";
-            this.времяПотериDataGridViewTextBoxColumn.Name = "времяПотериDataGridViewTextBoxColumn";
-            this.времяПотериDataGridViewTextBoxColumn.ReadOnly = true;
-            this.времяПотериDataGridViewTextBoxColumn.Width = 104;
-            // 
-            // фИОDataGridViewTextBoxColumn
-            // 
-            this.фИОDataGridViewTextBoxColumn.DataPropertyName = "ФИО";
-            this.фИОDataGridViewTextBoxColumn.HeaderText = "ФИО";
-            this.фИОDataGridViewTextBoxColumn.Name = "фИОDataGridViewTextBoxColumn";
-            this.фИОDataGridViewTextBoxColumn.ReadOnly = true;
-            this.фИОDataGridViewTextBoxColumn.Width = 59;
-            // 
-            // телефонDataGridViewTextBoxColumn
-            // 
-            this.телефонDataGridViewTextBoxColumn.DataPropertyName = "Телефон";
-            this.телефонDataGridViewTextBoxColumn.HeaderText = "Телефон";
-            this.телефонDataGridViewTextBoxColumn.Name = "телефонDataGridViewTextBoxColumn";
-            this.телефонDataGridViewTextBoxColumn.ReadOnly = true;
-            this.телефонDataGridViewTextBoxColumn.Width = 85;
-            // 
-            // времяОбращенияDataGridViewTextBoxColumn
-            // 
-            this.времяОбращенияDataGridViewTextBoxColumn.DataPropertyName = "Время обращения";
-            this.времяОбращенияDataGridViewTextBoxColumn.HeaderText = "Время обращения";
-            this.времяОбращенияDataGridViewTextBoxColumn.Name = "времяОбращенияDataGridViewTextBoxColumn";
-            this.времяОбращенияDataGridViewTextBoxColumn.ReadOnly = true;
-            this.времяОбращенияDataGridViewTextBoxColumn.Width = 124;
+            this.FormSwitchButton.Location = new System.Drawing.Point(934, 381);
+            this.FormSwitchButton.Name = "FormSwitchButton";
+            this.FormSwitchButton.Size = new System.Drawing.Size(95, 23);
+            this.FormSwitchButton.TabIndex = 53;
+            this.FormSwitchButton.Text = "Находки";
+            this.FormSwitchButton.UseVisualStyleBackColor = true;
+            this.FormSwitchButton.Click += new System.EventHandler(this.FindsButtonClick);
             // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1068, 416);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.FormSwitchButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.FilterSpot);
             this.Controls.Add(this.FilterRegTimeTo);
@@ -547,10 +548,10 @@
             this.Text = "Пропажи";
             this.Load += new System.EventHandler(this.Form3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.LostsTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.находкиBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.courseDataSet11)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.находкиBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -592,7 +593,7 @@
         private System.Windows.Forms.TextBox FilterDescription;
         private System.Windows.Forms.Label NameLabel;
         private System.Windows.Forms.TextBox FilterName;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button FormSwitchButton;
         private System.Windows.Forms.BindingSource находкиBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn кодDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn названиеDataGridViewTextBoxColumn;

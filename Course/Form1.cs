@@ -178,15 +178,17 @@ namespace Course
             if (!FiltersEnabled)
             {
                 this.Width += 75;
+                FormSwitchButton.Location = new Point(FormSwitchButton.Location.X + 37, FormSwitchButton.Location.Y);
                 UpdateChangesButton.Location = new Point(UpdateChangesButton.Location.X + 37, UpdateChangesButton.Location.Y);
-                FiltersEnabled = CheckBoxDescription.Visible = CheckBoxFIO.Visible = CheckBoxFoundTime.Visible
+                FiltersEnabled = CheckBoxSpot.Visible = CheckBoxDescription.Visible = CheckBoxFIO.Visible = CheckBoxFoundTime.Visible
                     = CheckBoxName.Visible = CheckBoxPhone.Visible = CheckBoxRegTime.Visible = true;
             }
             else
             {
                 this.Width -= 75;
+                FormSwitchButton.Location = new Point(FormSwitchButton.Location.X - 37, FormSwitchButton.Location.Y);
                 UpdateChangesButton.Location = new Point(UpdateChangesButton.Location.X - 37, UpdateChangesButton.Location.Y);
-                FiltersEnabled = CheckBoxDescription.Visible = CheckBoxFIO.Visible = CheckBoxFoundTime.Visible
+                FiltersEnabled = CheckBoxSpot.Visible = CheckBoxDescription.Visible = CheckBoxFIO.Visible = CheckBoxFoundTime.Visible
                     = CheckBoxName.Visible = CheckBoxPhone.Visible = CheckBoxRegTime.Visible = false;
             }
         }
