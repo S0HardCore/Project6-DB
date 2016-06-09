@@ -28,8 +28,8 @@ namespace Course
         {
             Account = _Account;
             InitializeComponent();
-            FilterFoundTimeFrom.Value = FilterRegTimeFrom.Value = DateTime.Now.AddDays(-10);
-            FilterFoundTimeTo.Value = FilterRegTimeTo.Value = DateTime.Now.AddDays(10);
+            FilterFoundTimeFrom.Value = FilterRegTimeFrom.Value = DateTime.Now.AddMonths(-1);
+            FilterFoundTimeTo.Value = FilterRegTimeTo.Value = DateTime.Now.AddMonths(1);
             FiltersText[5] = string.Format("[Время потери] >= '{0}' AND [Время потери] <= '{1}'",
                     FilterFoundTimeFrom.Value, FilterFoundTimeTo.Value);
             FiltersText[6] = string.Format("[Время обращения] >= '{0}' AND [Время обращения] <= '{1}'",
@@ -176,7 +176,7 @@ namespace Course
         {
             if (FiltersEnabled && CheckBoxFoundTime.Checked && LostsTable.DataSource == находкиBindingSource)
             {
-                FiltersText[5] = string.Format("[Время регистрации] >= '{0}' AND [Время регистрации] <= '{1}'",
+                FiltersText[5] = string.Format("[Время потери] >= '{0}' AND [Время потери] <= '{1}'",
                     FilterFoundTimeFrom.Value, FilterFoundTimeTo.Value);
                 находкиBindingSource.Filter = CombineFilter();
             }
@@ -186,7 +186,7 @@ namespace Course
         {
             if (FiltersEnabled && CheckBoxRegTime.Checked && LostsTable.DataSource == находкиBindingSource)
             {
-                FiltersText[6] = string.Format("[Время регистрации] >= '{0}' AND [Время регистрации] <= '{1}'",
+                FiltersText[6] = string.Format("[Время обращения] >= '{0}' AND [Время обращения] <= '{1}'",
                     FilterRegTimeFrom.Value, FilterRegTimeTo.Value);
                 находкиBindingSource.Filter = CombineFilter();
             }

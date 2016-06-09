@@ -29,9 +29,9 @@ namespace Course
             Account = _Account;
             InitializeComponent();
             this.KeyUp += fKeyUp;
-            FilterFoundTimeFrom.Value = FilterRegTimeFrom.Value = DateTime.Now.AddDays(-10);
-            FilterFoundTimeTo.Value = FilterRegTimeTo.Value = DateTime.Now.AddDays(10);
-            FiltersText[5] = string.Format("[Время регистрации] >= '{0}' AND [Время регистрации] <= '{1}'",
+            FilterFoundTimeFrom.Value = FilterRegTimeFrom.Value = DateTime.Now.AddMonths(-1);
+            FilterFoundTimeTo.Value = FilterRegTimeTo.Value = DateTime.Now.AddMonths(1);
+            FiltersText[5] = string.Format("[Время находки] >= '{0}' AND [Время находки] <= '{1}'",
                     FilterFoundTimeFrom.Value, FilterFoundTimeTo.Value);
             FiltersText[6] = string.Format("[Время регистрации] >= '{0}' AND [Время регистрации] <= '{1}'",
                     FilterRegTimeFrom.Value, FilterRegTimeTo.Value);
@@ -157,7 +157,7 @@ namespace Course
         {
             if (FiltersEnabled && CheckBoxFoundTime.Checked && LostTable.DataSource == находкиBindingSource)
             {
-                FiltersText[5] = string.Format("[Время регистрации] >= '{0}' AND [Время регистрации] <= '{1}'",
+                FiltersText[5] = string.Format("[Время находки] >= '{0}' AND [Время находки] <= '{1}'",
                     FilterFoundTimeFrom.Value, FilterFoundTimeTo.Value);
                 находкиBindingSource.Filter = CombineFilter();
             }
