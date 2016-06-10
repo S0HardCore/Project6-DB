@@ -10,3 +10,4 @@ c:\users\oleg\documents\visual studio 2013\Projects\Course\Course\obj\Debug\Cour
 c:\users\oleg\documents\visual studio 2013\Projects\Course\Course\obj\Debug\Course.Form2.resources
 C:\Users\Oleg\documents\visual studio 2013\Projects\Course\Course\obj\Debug\Course.csprojResolveAssemblyReference.cache
 C:\Users\Oleg\documents\visual studio 2013\Projects\Course\Course\obj\Debug\Course.Form3.resources
+C:\Users\Oleg\documents\visual studio 2013\Projects\Course\Course\obj\Debug\Course.Form4.resources

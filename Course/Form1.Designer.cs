@@ -37,6 +37,7 @@
             this.находкиTableAdapter = new Course.CourseDataSetTableAdapters.НаходкиTableAdapter();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.учетнаяЗаписьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сотрудникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.режимРаботыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.просмотрToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,10 +76,6 @@
             this.местоНаходкиDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.времяРегистрацииDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LostTable = new System.Windows.Forms.DataGridView();
-            this.FormSwitchButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.FilterSpot = new System.Windows.Forms.TextBox();
-            this.CheckBoxSpot = new System.Windows.Forms.CheckBox();
             this.кодDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.названиеDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.описаниеDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -87,6 +84,12 @@
             this.времяНаходкиDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.местоНаходкиDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.времяРегистрацииDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FormSwitchButton = new System.Windows.Forms.Button();
+            this.SpotLabel = new System.Windows.Forms.Label();
+            this.FilterSpot = new System.Windows.Forms.TextBox();
+            this.CheckBoxSpot = new System.Windows.Forms.CheckBox();
+            this.статистикаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.логToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.courseDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.courseDataSet)).BeginInit();
@@ -128,15 +131,25 @@
             // учетнаяЗаписьToolStripMenuItem
             // 
             this.учетнаяЗаписьToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.сотрудникиToolStripMenuItem,
+            this.статистикаToolStripMenuItem,
+            this.логToolStripMenuItem,
             this.выходToolStripMenuItem});
             this.учетнаяЗаписьToolStripMenuItem.Name = "учетнаяЗаписьToolStripMenuItem";
             this.учетнаяЗаписьToolStripMenuItem.Size = new System.Drawing.Size(103, 20);
             this.учетнаяЗаписьToolStripMenuItem.Text = "Учетная запись";
             // 
+            // сотрудникиToolStripMenuItem
+            // 
+            this.сотрудникиToolStripMenuItem.Name = "сотрудникиToolStripMenuItem";
+            this.сотрудникиToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.сотрудникиToolStripMenuItem.Text = "Сотрудники";
+            this.сотрудникиToolStripMenuItem.Click += new System.EventHandler(this.сотрудникиToolStripMenuItemClick);
+            // 
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.выходToolStripMenuItem.Text = "Выход";
             this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
@@ -166,7 +179,7 @@
             // UpdateChangesButton
             // 
             this.UpdateChangesButton.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.UpdateChangesButton.Location = new System.Drawing.Point(951, 313);
+            this.UpdateChangesButton.Location = new System.Drawing.Point(951, 305);
             this.UpdateChangesButton.Name = "UpdateChangesButton";
             this.UpdateChangesButton.Size = new System.Drawing.Size(78, 50);
             this.UpdateChangesButton.TabIndex = 2;
@@ -502,49 +515,6 @@
             this.LostTable.Size = new System.Drawing.Size(900, 284);
             this.LostTable.TabIndex = 24;
             // 
-            // FormSwitchButton
-            // 
-            this.FormSwitchButton.Location = new System.Drawing.Point(934, 381);
-            this.FormSwitchButton.Name = "FormSwitchButton";
-            this.FormSwitchButton.Size = new System.Drawing.Size(95, 23);
-            this.FormSwitchButton.TabIndex = 25;
-            this.FormSwitchButton.Text = "Пропажи";
-            this.FormSwitchButton.UseVisualStyleBackColor = true;
-            this.FormSwitchButton.Click += new System.EventHandler(this.LostsButtonClick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(606, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 14);
-            this.label1.TabIndex = 27;
-            this.label1.Text = "Место";
-            // 
-            // FilterSpot
-            // 
-            this.FilterSpot.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FilterSpot.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.FilterSpot.Location = new System.Drawing.Point(596, 44);
-            this.FilterSpot.MaxLength = 64;
-            this.FilterSpot.Name = "FilterSpot";
-            this.FilterSpot.Size = new System.Drawing.Size(80, 22);
-            this.FilterSpot.TabIndex = 26;
-            this.FilterSpot.TextChanged += new System.EventHandler(this.FilterSpotTextChanged);
-            // 
-            // CheckBoxSpot
-            // 
-            this.CheckBoxSpot.AutoSize = true;
-            this.CheckBoxSpot.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CheckBoxSpot.Location = new System.Drawing.Point(918, 171);
-            this.CheckBoxSpot.Name = "CheckBoxSpot";
-            this.CheckBoxSpot.Size = new System.Drawing.Size(71, 17);
-            this.CheckBoxSpot.TabIndex = 28;
-            this.CheckBoxSpot.Text = "По месту";
-            this.CheckBoxSpot.UseVisualStyleBackColor = true;
-            this.CheckBoxSpot.CheckedChanged += new System.EventHandler(this.CheckBoxSpotCheckedChanged);
-            // 
             // кодDataGridViewTextBoxColumn2
             // 
             this.кодDataGridViewTextBoxColumn2.DataPropertyName = "Код";
@@ -610,13 +580,69 @@
             this.времяРегистрацииDataGridViewTextBoxColumn1.ReadOnly = true;
             this.времяРегистрацииDataGridViewTextBoxColumn1.Width = 121;
             // 
+            // FormSwitchButton
+            // 
+            this.FormSwitchButton.Location = new System.Drawing.Point(934, 371);
+            this.FormSwitchButton.Name = "FormSwitchButton";
+            this.FormSwitchButton.Size = new System.Drawing.Size(95, 23);
+            this.FormSwitchButton.TabIndex = 25;
+            this.FormSwitchButton.Text = "Пропажи";
+            this.FormSwitchButton.UseVisualStyleBackColor = true;
+            this.FormSwitchButton.Click += new System.EventHandler(this.LostsButtonClick);
+            // 
+            // SpotLabel
+            // 
+            this.SpotLabel.AutoSize = true;
+            this.SpotLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SpotLabel.Location = new System.Drawing.Point(606, 27);
+            this.SpotLabel.Name = "SpotLabel";
+            this.SpotLabel.Size = new System.Drawing.Size(42, 14);
+            this.SpotLabel.TabIndex = 27;
+            this.SpotLabel.Text = "Место";
+            // 
+            // FilterSpot
+            // 
+            this.FilterSpot.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.FilterSpot.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.FilterSpot.Location = new System.Drawing.Point(596, 44);
+            this.FilterSpot.MaxLength = 64;
+            this.FilterSpot.Name = "FilterSpot";
+            this.FilterSpot.Size = new System.Drawing.Size(80, 22);
+            this.FilterSpot.TabIndex = 26;
+            this.FilterSpot.TextChanged += new System.EventHandler(this.FilterSpotTextChanged);
+            // 
+            // CheckBoxSpot
+            // 
+            this.CheckBoxSpot.AutoSize = true;
+            this.CheckBoxSpot.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CheckBoxSpot.Location = new System.Drawing.Point(918, 171);
+            this.CheckBoxSpot.Name = "CheckBoxSpot";
+            this.CheckBoxSpot.Size = new System.Drawing.Size(71, 17);
+            this.CheckBoxSpot.TabIndex = 28;
+            this.CheckBoxSpot.Text = "По месту";
+            this.CheckBoxSpot.UseVisualStyleBackColor = true;
+            this.CheckBoxSpot.CheckedChanged += new System.EventHandler(this.CheckBoxSpotCheckedChanged);
+            // 
+            // статистикаToolStripMenuItem
+            // 
+            this.статистикаToolStripMenuItem.Name = "статистикаToolStripMenuItem";
+            this.статистикаToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.статистикаToolStripMenuItem.Text = "Статистика";
+            // 
+            // логToolStripMenuItem
+            // 
+            this.логToolStripMenuItem.Name = "логToolStripMenuItem";
+            this.логToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.логToolStripMenuItem.Text = "Лог";
+            this.логToolStripMenuItem.Click += new System.EventHandler(this.логToolStripMenuItemClick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1068, 416);
             this.Controls.Add(this.CheckBoxSpot);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.SpotLabel);
             this.Controls.Add(this.FilterSpot);
             this.Controls.Add(this.FormSwitchButton);
             this.Controls.Add(this.LostTable);
@@ -712,7 +738,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn времяРегистрацииDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridView LostTable;
         private System.Windows.Forms.Button FormSwitchButton;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label SpotLabel;
         private System.Windows.Forms.TextBox FilterSpot;
         private System.Windows.Forms.CheckBox CheckBoxSpot;
         private System.Windows.Forms.DataGridViewTextBoxColumn кодDataGridViewTextBoxColumn2;
@@ -723,6 +749,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn времяНаходкиDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn местоНаходкиDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn времяРегистрацииDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.ToolStripMenuItem сотрудникиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem статистикаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem логToolStripMenuItem;
     }
 }
 

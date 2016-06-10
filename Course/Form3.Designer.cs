@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             this.потериTableAdapter1 = new Course.CourseDataSet1TableAdapters.ПотериTableAdapter();
             this.LostsTable = new System.Windows.Forms.DataGridView();
             this.кодDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,6 +44,7 @@
             this.courseDataSet11 = new Course.CourseDataSet1();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.учетнаяЗаписьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сотрудникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.режимРаботыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.просмотрToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,7 +58,7 @@
             this.CheckBoxDescription = new System.Windows.Forms.CheckBox();
             this.CheckBoxName = new System.Windows.Forms.CheckBox();
             this.FilterSwitchButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.SpotLabel = new System.Windows.Forms.Label();
             this.FilterSpot = new System.Windows.Forms.TextBox();
             this.FilterRegTimeTo = new System.Windows.Forms.DateTimePicker();
             this.FilterFoundTimeTo = new System.Windows.Forms.DateTimePicker();
@@ -73,6 +75,8 @@
             this.NameLabel = new System.Windows.Forms.Label();
             this.FilterName = new System.Windows.Forms.TextBox();
             this.FormSwitchButton = new System.Windows.Forms.Button();
+            this.статистикаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.логToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.LostsTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.находкиBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.courseDataSet11)).BeginInit();
@@ -196,15 +200,25 @@
             // учетнаяЗаписьToolStripMenuItem
             // 
             this.учетнаяЗаписьToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.сотрудникиToolStripMenuItem,
+            this.статистикаToolStripMenuItem,
+            this.логToolStripMenuItem,
             this.выходToolStripMenuItem});
             this.учетнаяЗаписьToolStripMenuItem.Name = "учетнаяЗаписьToolStripMenuItem";
             this.учетнаяЗаписьToolStripMenuItem.Size = new System.Drawing.Size(103, 20);
             this.учетнаяЗаписьToolStripMenuItem.Text = "Учетная запись";
             // 
+            // сотрудникиToolStripMenuItem
+            // 
+            this.сотрудникиToolStripMenuItem.Name = "сотрудникиToolStripMenuItem";
+            this.сотрудникиToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.сотрудникиToolStripMenuItem.Text = "Сотрудники";
+            this.сотрудникиToolStripMenuItem.Click += new System.EventHandler(this.сотрудникиToolStripMenuItemClick);
+            // 
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.выходToolStripMenuItem.Text = "Выход";
             this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
@@ -234,13 +248,13 @@
             // UpdateChangesButton
             // 
             this.UpdateChangesButton.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.UpdateChangesButton.Location = new System.Drawing.Point(951, 313);
+            this.UpdateChangesButton.Location = new System.Drawing.Point(951, 305);
             this.UpdateChangesButton.Name = "UpdateChangesButton";
             this.UpdateChangesButton.Size = new System.Drawing.Size(78, 50);
             this.UpdateChangesButton.TabIndex = 3;
             this.UpdateChangesButton.Text = "Сохранить изменения";
             this.UpdateChangesButton.UseVisualStyleBackColor = true;
-            this.UpdateChangesButton.Click += new System.EventHandler(this.UpdateChangesButton_Click);
+            this.UpdateChangesButton.Click += new System.EventHandler(this.UpdateChangesButtonClick);
             // 
             // CheckBoxSpot
             // 
@@ -336,15 +350,15 @@
             this.FilterSwitchButton.UseVisualStyleBackColor = true;
             this.FilterSwitchButton.Click += new System.EventHandler(this.FilterSwitchButtonClick);
             // 
-            // label1
+            // SpotLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(606, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 14);
-            this.label1.TabIndex = 52;
-            this.label1.Text = "Место";
+            this.SpotLabel.AutoSize = true;
+            this.SpotLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SpotLabel.Location = new System.Drawing.Point(606, 25);
+            this.SpotLabel.Name = "SpotLabel";
+            this.SpotLabel.Size = new System.Drawing.Size(42, 14);
+            this.SpotLabel.TabIndex = 52;
+            this.SpotLabel.Text = "Место";
             // 
             // FilterSpot
             // 
@@ -500,7 +514,7 @@
             // 
             // FormSwitchButton
             // 
-            this.FormSwitchButton.Location = new System.Drawing.Point(934, 381);
+            this.FormSwitchButton.Location = new System.Drawing.Point(934, 371);
             this.FormSwitchButton.Name = "FormSwitchButton";
             this.FormSwitchButton.Size = new System.Drawing.Size(95, 23);
             this.FormSwitchButton.TabIndex = 53;
@@ -508,13 +522,26 @@
             this.FormSwitchButton.UseVisualStyleBackColor = true;
             this.FormSwitchButton.Click += new System.EventHandler(this.FindsButtonClick);
             // 
+            // статистикаToolStripMenuItem
+            // 
+            this.статистикаToolStripMenuItem.Name = "статистикаToolStripMenuItem";
+            this.статистикаToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.статистикаToolStripMenuItem.Text = "Статистика";
+            // 
+            // логToolStripMenuItem
+            // 
+            this.логToolStripMenuItem.Name = "логToolStripMenuItem";
+            this.логToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.логToolStripMenuItem.Text = "Лог";
+            this.логToolStripMenuItem.Click += new System.EventHandler(this.логToolStripMenuItemClick);
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1068, 416);
             this.Controls.Add(this.FormSwitchButton);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.SpotLabel);
             this.Controls.Add(this.FilterSpot);
             this.Controls.Add(this.FilterRegTimeTo);
             this.Controls.Add(this.FilterFoundTimeTo);
@@ -543,6 +570,7 @@
             this.Controls.Add(this.LostsTable);
             this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form3";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Пропажи";
@@ -577,7 +605,7 @@
         private System.Windows.Forms.CheckBox CheckBoxDescription;
         private System.Windows.Forms.CheckBox CheckBoxName;
         private System.Windows.Forms.Button FilterSwitchButton;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label SpotLabel;
         private System.Windows.Forms.TextBox FilterSpot;
         private System.Windows.Forms.DateTimePicker FilterRegTimeTo;
         private System.Windows.Forms.DateTimePicker FilterFoundTimeTo;
@@ -603,5 +631,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn фИОDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn телефонDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn времяОбращенияDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ToolStripMenuItem сотрудникиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem статистикаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem логToolStripMenuItem;
     }
 }

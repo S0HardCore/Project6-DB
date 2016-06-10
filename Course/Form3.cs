@@ -1,18 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Course
 {
     public partial class Form3 : Form
     {
-        public static String Account = "";
+        public static String
+            Account, Log = "Log.txt";
+        public static FileStream LogFile;
         public static String[] FiltersText = new String[7]
             {
                 "[Название] LIKE'%'",
@@ -27,7 +25,12 @@ namespace Course
         public Form3(String _Account)
         {
             Account = _Account;
+            File.SetAttributes(Log, FileAttributes.Hidden);
+            using (StreamWriter sw = File.AppendText(Log))
+                sw.WriteLine(DateTime.Now.ToString() + " " + Account + " перешел на форму Пропажи.");
             InitializeComponent();
+            FiltersEnabled = true;
+            //this.KeyUp += fKeyUp;
             FilterFoundTimeFrom.Value = FilterRegTimeFrom.Value = DateTime.Now.AddMonths(-1);
             FilterFoundTimeTo.Value = FilterRegTimeTo.Value = DateTime.Now.AddMonths(1);
             FiltersText[5] = string.Format("[Время потери] >= '{0}' AND [Время потери] <= '{1}'",
@@ -39,8 +42,25 @@ namespace Course
 
         Boolean FormSwitching = false;
 
+        void fKeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Escape)
+            {
+                DialogResult Result = MessageBox.Show("Завершить работу?",
+                            "Выход", MessageBoxButtons.YesNo);
+                if (Result == DialogResult.Yes)
+                {
+                    using (StreamWriter sw = File.AppendText(Log))
+                        sw.WriteLine(DateTime.Now.ToString() + " " + Account + " завершил программу.");
+                    Application.Exit();
+                }
+            }
+        }
+
         private void просмотрToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            using (StreamWriter sw = File.AppendText(Log))
+                sw.WriteLine(DateTime.Now.ToString() + " " + Account + " перешел в режим просмотра.");
             режимРаботыToolStripMenuItem.Text = "Режим работы [Просмотр]";
             LostsTable.ReadOnly = true;
             LostsTable.AllowUserToDeleteRows = false;
@@ -49,6 +69,8 @@ namespace Course
 
         private void редактированиеToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            using (StreamWriter sw = File.AppendText(Log))
+                sw.WriteLine(DateTime.Now.ToString() + " " + Account + " перешел в режим редактирования.");
             режимРаботыToolStripMenuItem.Text = "Режим работы [Редактирование]";
             LostsTable.ReadOnly = false;
             LostsTable.AllowUserToDeleteRows = true;
@@ -68,6 +90,8 @@ namespace Course
 
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            using (StreamWriter sw = File.AppendText(Log))
+                sw.WriteLine(DateTime.Now.ToString() + " " + Account + " разлогинился.");
             Form2 AuthForm = new Form2();
             AuthForm.Show();
             FormSwitching = true;
@@ -79,11 +103,15 @@ namespace Course
             this.потериTableAdapter1.Fill(this.courseDataSet11.Потери);
         }
 
-        private void UpdateChangesButton_Click(object sender, EventArgs e)
+        private void UpdateChangesButtonClick(object sender, EventArgs e)
         {
             DialogResult Result = MessageBox.Show("Вы действительно хотите сохранить изменения в базе?", "Сохранить изменения", MessageBoxButtons.YesNo);
             if (Result == DialogResult.Yes)
+            {
+                using (StreamWriter sw = File.AppendText(Log))
+                    sw.WriteLine(DateTime.Now.ToString() + " " + Account + " сохранил изменения.");
                 this.потериTableAdapter1.Update(courseDataSet11.Потери);
+            }
         }
 
         public String CombineFilter()
@@ -243,19 +271,45 @@ namespace Course
             if (!FiltersEnabled)
             {
                 this.Width += 75;
-                FormSwitchButton.Location = new Point(FormSwitchButton.Location.X + 37, FormSwitchButton.Location.Y);
-                UpdateChangesButton.Location = new Point(UpdateChangesButton.Location.X + 37, UpdateChangesButton.Location.Y);
-                FiltersEnabled = CheckBoxSpot.Visible = CheckBoxDescription.Visible = CheckBoxFIO.Visible = CheckBoxFoundTime.Visible
-                    = CheckBoxName.Visible = CheckBoxPhone.Visible = CheckBoxRegTime.Visible = true;
+                this.Height += 60;
+                LostsTable.Location = new Point(LostsTable.Location.X, LostsTable.Location.Y + 35);
+                FilterSwitchButton.Location = new Point(FilterSwitchButton.Location.X, FilterSwitchButton.Location.Y + 35);
+                UpdateChangesButton.Location = new Point(UpdateChangesButton.Location.X + 37, UpdateChangesButton.Location.Y + 35);
+                FormSwitchButton.Location = new Point(FormSwitchButton.Left + 37, FormSwitchButton.Top + 45);
+                FiltersEnabled = CheckBoxSpot.Visible = CheckBoxDescription.Visible = CheckBoxFIO.Visible = CheckBoxFoundTime.Visible =
+                    CheckBoxName.Visible = CheckBoxPhone.Visible = CheckBoxRegTime.Visible = FilterDescription.Visible = FilterFIO.Visible = FilterSpot.Visible =
+                    FilterFoundTimeFrom.Visible = FilterFoundTimeTo.Visible = FilterName.Visible = FilterPhone.Visible = FilterRegTimeFrom.Visible = FilterRegTimeTo.Visible =
+                    DescriptionLabel.Visible = FIOLabel.Visible = FoundTimeLabel.Visible = NameLabel.Visible = PhoneLabel.Visible = RegTimeLabel.Visible = SpotLabel.Visible = true;
             }
             else
             {
                 this.Width -= 75;
-                FormSwitchButton.Location = new Point(FormSwitchButton.Location.X - 37, FormSwitchButton.Location.Y);
-                UpdateChangesButton.Location = new Point(UpdateChangesButton.Location.X - 37, UpdateChangesButton.Location.Y);
-                FiltersEnabled = CheckBoxSpot.Visible = CheckBoxDescription.Visible = CheckBoxFIO.Visible = CheckBoxFoundTime.Visible
-                    = CheckBoxName.Visible = CheckBoxPhone.Visible = CheckBoxRegTime.Visible = false;
+                this.Height -= 60;
+                LostsTable.Location = new Point(LostsTable.Location.X, LostsTable.Location.Y - 35);
+                FilterSwitchButton.Location = new Point(FilterSwitchButton.Location.X, FilterSwitchButton.Location.Y - 35);
+                UpdateChangesButton.Location = new Point(UpdateChangesButton.Location.X - 37, UpdateChangesButton.Location.Y - 35);
+                FormSwitchButton.Location = new Point(FormSwitchButton.Location.X - 37, FormSwitchButton.Location.Y - 45);
+                FiltersEnabled = CheckBoxSpot.Visible = CheckBoxDescription.Visible = CheckBoxFIO.Visible = CheckBoxFoundTime.Visible =
+                    CheckBoxName.Visible = CheckBoxPhone.Visible = CheckBoxRegTime.Visible = FilterDescription.Visible = FilterFIO.Visible = FilterSpot.Visible =
+                    FilterFoundTimeFrom.Visible = FilterFoundTimeTo.Visible = FilterName.Visible = FilterPhone.Visible = FilterRegTimeFrom.Visible = FilterRegTimeTo.Visible =
+                    DescriptionLabel.Visible = FIOLabel.Visible = FoundTimeLabel.Visible = NameLabel.Visible = PhoneLabel.Visible = RegTimeLabel.Visible = SpotLabel.Visible = false;
             }
+        }
+
+        private void сотрудникиToolStripMenuItemClick(object sender, EventArgs e)
+        {
+            if (Account == "admin")
+            {
+                Form4 WorkersForm = new Form4();
+                WorkersForm.ShowDialog();
+            }
+            else
+                MessageBox.Show("У вас нет доступа.");
+        }
+
+        private void логToolStripMenuItemClick(object sender, EventArgs e)
+        {
+            MessageBox.Show(File.ReadAllText(Log));
         }
 
     }
