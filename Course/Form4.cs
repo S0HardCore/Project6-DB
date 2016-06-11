@@ -20,7 +20,6 @@ namespace Course
         private void Form4_Load(object sender, EventArgs e)
         {
             this.сотрудникиTableAdapter.Fill(this.courseDataSet11.Сотрудники);
-
         }
 
         private void WorkersSaveButtonClick(object sender, EventArgs e)

@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.courseDataSet1 = new Course.CourseDataSet1();
@@ -38,10 +41,17 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.учетнаяЗаписьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сотрудникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.статистикаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.логToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.режимРаботыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.просмотрToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.редактированиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.фонToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.изображениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.безФонаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.серыйToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.случайныйЦветToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UpdateChangesButton = new System.Windows.Forms.Button();
             this.FilterName = new System.Windows.Forms.TextBox();
             this.NameLabel = new System.Windows.Forms.Label();
@@ -88,8 +98,6 @@
             this.SpotLabel = new System.Windows.Forms.Label();
             this.FilterSpot = new System.Windows.Forms.TextBox();
             this.CheckBoxSpot = new System.Windows.Forms.CheckBox();
-            this.статистикаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.логToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.courseDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.courseDataSet)).BeginInit();
@@ -121,7 +129,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.учетнаяЗаписьToolStripMenuItem,
-            this.режимРаботыToolStripMenuItem});
+            this.режимРаботыToolStripMenuItem,
+            this.фонToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1068, 24);
@@ -142,14 +151,27 @@
             // сотрудникиToolStripMenuItem
             // 
             this.сотрудникиToolStripMenuItem.Name = "сотрудникиToolStripMenuItem";
-            this.сотрудникиToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.сотрудникиToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.сотрудникиToolStripMenuItem.Text = "Сотрудники";
             this.сотрудникиToolStripMenuItem.Click += new System.EventHandler(this.сотрудникиToolStripMenuItemClick);
+            // 
+            // статистикаToolStripMenuItem
+            // 
+            this.статистикаToolStripMenuItem.Name = "статистикаToolStripMenuItem";
+            this.статистикаToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.статистикаToolStripMenuItem.Text = "Статистика";
+            // 
+            // логToolStripMenuItem
+            // 
+            this.логToolStripMenuItem.Name = "логToolStripMenuItem";
+            this.логToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.логToolStripMenuItem.Text = "Лог";
+            this.логToolStripMenuItem.Click += new System.EventHandler(this.логToolStripMenuItemClick);
             // 
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.выходToolStripMenuItem.Text = "Выход";
             this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
@@ -175,6 +197,45 @@
             this.редактированиеToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.редактированиеToolStripMenuItem.Text = "Редактирование";
             this.редактированиеToolStripMenuItem.Click += new System.EventHandler(this.редактированиеToolStripMenuItem_Click);
+            // 
+            // фонToolStripMenuItem
+            // 
+            this.фонToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.изображениеToolStripMenuItem,
+            this.безФонаToolStripMenuItem,
+            this.серыйToolStripMenuItem,
+            this.случайныйЦветToolStripMenuItem});
+            this.фонToolStripMenuItem.Name = "фонToolStripMenuItem";
+            this.фонToolStripMenuItem.Size = new System.Drawing.Size(42, 20);
+            this.фонToolStripMenuItem.Text = "Фон";
+            // 
+            // изображениеToolStripMenuItem
+            // 
+            this.изображениеToolStripMenuItem.Name = "изображениеToolStripMenuItem";
+            this.изображениеToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.изображениеToolStripMenuItem.Text = "Изображение";
+            this.изображениеToolStripMenuItem.Click += new System.EventHandler(this.изображениеToolStripMenuItem_Click);
+            // 
+            // безФонаToolStripMenuItem
+            // 
+            this.безФонаToolStripMenuItem.Name = "безФонаToolStripMenuItem";
+            this.безФонаToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.безФонаToolStripMenuItem.Text = "Белый";
+            this.безФонаToolStripMenuItem.Click += new System.EventHandler(this.белыйToolStripMenuItem_Click);
+            // 
+            // серыйToolStripMenuItem
+            // 
+            this.серыйToolStripMenuItem.Name = "серыйToolStripMenuItem";
+            this.серыйToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.серыйToolStripMenuItem.Text = "Серый";
+            this.серыйToolStripMenuItem.Click += new System.EventHandler(this.серыйToolStripMenuItem_Click);
+            // 
+            // случайныйЦветToolStripMenuItem
+            // 
+            this.случайныйЦветToolStripMenuItem.Name = "случайныйЦветToolStripMenuItem";
+            this.случайныйЦветToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.случайныйЦветToolStripMenuItem.Text = "Случайный цвет";
+            this.случайныйЦветToolStripMenuItem.Click += new System.EventHandler(this.случайныйЦветToolStripMenuItem_Click);
             // 
             // UpdateChangesButton
             // 
@@ -498,6 +559,15 @@
             this.LostTable.AllowUserToResizeRows = false;
             this.LostTable.AutoGenerateColumns = false;
             this.LostTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.LostTable.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.LostTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.LostTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.LostTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.кодDataGridViewTextBoxColumn2,
@@ -509,21 +579,33 @@
             this.местоНаходкиDataGridViewTextBoxColumn1,
             this.времяРегистрацииDataGridViewTextBoxColumn1});
             this.LostTable.DataSource = this.находкиBindingSource;
+            this.LostTable.EnableHeadersVisualStyles = false;
+            this.LostTable.GridColor = System.Drawing.SystemColors.HotTrack;
             this.LostTable.Location = new System.Drawing.Point(12, 70);
             this.LostTable.Name = "LostTable";
             this.LostTable.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.LostTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.LostTable.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.LostTable.Size = new System.Drawing.Size(900, 284);
             this.LostTable.TabIndex = 24;
             // 
             // кодDataGridViewTextBoxColumn2
             // 
             this.кодDataGridViewTextBoxColumn2.DataPropertyName = "Код";
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.кодDataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            this.кодDataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
             this.кодDataGridViewTextBoxColumn2.HeaderText = "Код";
             this.кодDataGridViewTextBoxColumn2.Name = "кодDataGridViewTextBoxColumn2";
             this.кодDataGridViewTextBoxColumn2.ReadOnly = true;
-            this.кодDataGridViewTextBoxColumn2.Width = 51;
+            this.кодDataGridViewTextBoxColumn2.Width = 52;
             // 
             // названиеDataGridViewTextBoxColumn1
             // 
@@ -531,7 +613,7 @@
             this.названиеDataGridViewTextBoxColumn1.HeaderText = "Название";
             this.названиеDataGridViewTextBoxColumn1.Name = "названиеDataGridViewTextBoxColumn1";
             this.названиеDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.названиеDataGridViewTextBoxColumn1.Width = 82;
+            this.названиеDataGridViewTextBoxColumn1.Width = 80;
             // 
             // описаниеDataGridViewTextBoxColumn1
             // 
@@ -539,7 +621,7 @@
             this.описаниеDataGridViewTextBoxColumn1.HeaderText = "Описание";
             this.описаниеDataGridViewTextBoxColumn1.Name = "описаниеDataGridViewTextBoxColumn1";
             this.описаниеDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.описаниеDataGridViewTextBoxColumn1.Width = 82;
+            this.описаниеDataGridViewTextBoxColumn1.Width = 81;
             // 
             // фИОDataGridViewTextBoxColumn1
             // 
@@ -547,7 +629,7 @@
             this.фИОDataGridViewTextBoxColumn1.HeaderText = "ФИО";
             this.фИОDataGridViewTextBoxColumn1.Name = "фИОDataGridViewTextBoxColumn1";
             this.фИОDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.фИОDataGridViewTextBoxColumn1.Width = 59;
+            this.фИОDataGridViewTextBoxColumn1.Width = 55;
             // 
             // телефонDataGridViewTextBoxColumn1
             // 
@@ -555,7 +637,7 @@
             this.телефонDataGridViewTextBoxColumn1.HeaderText = "Телефон";
             this.телефонDataGridViewTextBoxColumn1.Name = "телефонDataGridViewTextBoxColumn1";
             this.телефонDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.телефонDataGridViewTextBoxColumn1.Width = 77;
+            this.телефонDataGridViewTextBoxColumn1.Width = 76;
             // 
             // времяНаходкиDataGridViewTextBoxColumn1
             // 
@@ -563,6 +645,7 @@
             this.времяНаходкиDataGridViewTextBoxColumn1.HeaderText = "Время находки";
             this.времяНаходкиDataGridViewTextBoxColumn1.Name = "времяНаходкиDataGridViewTextBoxColumn1";
             this.времяНаходкиDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.времяНаходкиDataGridViewTextBoxColumn1.Width = 99;
             // 
             // местоНаходкиDataGridViewTextBoxColumn1
             // 
@@ -570,7 +653,6 @@
             this.местоНаходкиDataGridViewTextBoxColumn1.HeaderText = "Место находки";
             this.местоНаходкиDataGridViewTextBoxColumn1.Name = "местоНаходкиDataGridViewTextBoxColumn1";
             this.местоНаходкиDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.местоНаходкиDataGridViewTextBoxColumn1.Width = 99;
             // 
             // времяРегистрацииDataGridViewTextBoxColumn1
             // 
@@ -578,7 +660,7 @@
             this.времяРегистрацииDataGridViewTextBoxColumn1.HeaderText = "Время регистрации";
             this.времяРегистрацииDataGridViewTextBoxColumn1.Name = "времяРегистрацииDataGridViewTextBoxColumn1";
             this.времяРегистрацииDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.времяРегистрацииDataGridViewTextBoxColumn1.Width = 121;
+            this.времяРегистрацииDataGridViewTextBoxColumn1.Width = 118;
             // 
             // FormSwitchButton
             // 
@@ -622,19 +704,6 @@
             this.CheckBoxSpot.Text = "По месту";
             this.CheckBoxSpot.UseVisualStyleBackColor = true;
             this.CheckBoxSpot.CheckedChanged += new System.EventHandler(this.CheckBoxSpotCheckedChanged);
-            // 
-            // статистикаToolStripMenuItem
-            // 
-            this.статистикаToolStripMenuItem.Name = "статистикаToolStripMenuItem";
-            this.статистикаToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.статистикаToolStripMenuItem.Text = "Статистика";
-            // 
-            // логToolStripMenuItem
-            // 
-            this.логToolStripMenuItem.Name = "логToolStripMenuItem";
-            this.логToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.логToolStripMenuItem.Text = "Лог";
-            this.логToolStripMenuItem.Click += new System.EventHandler(this.логToolStripMenuItemClick);
             // 
             // Form1
             // 
@@ -752,6 +821,11 @@
         private System.Windows.Forms.ToolStripMenuItem сотрудникиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem статистикаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem логToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem фонToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem изображениеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem безФонаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem серыйToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem случайныйЦветToolStripMenuItem;
     }
 }
 

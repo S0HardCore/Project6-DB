@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Course
@@ -10,7 +11,14 @@ namespace Course
         public Form2()
         {
             InitializeComponent();
+            File.SetAttributes("Log.txt", FileAttributes.Hidden);
             Logined = false;
+            if (!File.Exists("Log.txt"))
+            {
+                StreamWriter file = new StreamWriter("Log.txt");
+                file.Close();
+            }
+            
             this.AcceptButton = AuthButton;
         }
 

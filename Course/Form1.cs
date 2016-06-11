@@ -10,33 +10,20 @@ namespace Course
     {
         public static String
             Account, Log = "Log.txt";
-        public static FileStream LogFile;
-        public static String[] FiltersText = new String[7]
-            {
-                "[Название] LIKE'%'",
-                "[Описание] LIKE'%'",
-                "[ФИО] LIKE'%'",
-                "[Телефон] LIKE'%'",
-                "[Место находки] LIKE '%'",
-                "",
-                ""
-            };
+        public static Random getRandom = new Random();
+        public static String[] FiltersText = new String[7];
         public static Boolean FiltersEnabled = true;
+        public static Boolean[] FiltersCheckers = new Boolean[7];
         public Form1(String _Account)
         {
             Account = _Account;
-            File.SetAttributes(Log, FileAttributes.Normal);
             using (StreamWriter sw = File.AppendText(Log))
-            sw.WriteLine(DateTime.Now.ToString() + " " + Account + " перешел на форму Находки.");
+                sw.WriteLine(DateTime.Now.ToString() + " " + Account + " перешел на форму Находки.");
             FiltersEnabled = true;
+            for (int a = 0; a < 7; ++a)
+                FiltersCheckers[a] = false;
             InitializeComponent();
             //this.KeyUp += fKeyUp;
-            FilterFoundTimeFrom.Value = FilterRegTimeFrom.Value = DateTime.Now.AddMonths(-1);
-            FilterFoundTimeTo.Value = FilterRegTimeTo.Value = DateTime.Now.AddMonths(1);
-            FiltersText[5] = string.Format("[Время находки] >= '{0}' AND [Время находки] <= '{1}'",
-                    FilterFoundTimeFrom.Value, FilterFoundTimeTo.Value);
-            FiltersText[6] = string.Format("[Время регистрации] >= '{0}' AND [Время регистрации] <= '{1}'",
-                    FilterRegTimeFrom.Value, FilterRegTimeTo.Value);
             учетнаяЗаписьToolStripMenuItem.Text = "Учетная запись [" + Account + "]";
         }
 
@@ -110,85 +97,55 @@ namespace Course
             {
                 using (StreamWriter sw = File.AppendText(Log))
                     sw.WriteLine(DateTime.Now.ToString() + " " + Account + " сохранил изменения.");
-                this.находкиTableAdapter.Update(courseDataSet.Находки);
+                this.находкиTableAdapter1.Update(courseDataSet1.Находки);
             }
         }
 
         private void FilterNameTextChanged(object sender, EventArgs e)
         {
-            if (FiltersEnabled && CheckBoxName.Checked && LostTable.DataSource == находкиBindingSource)
-            {
-                FiltersText[0] = "[Название] LIKE'" + FilterName.Text + "%'";
-                находкиBindingSource.Filter = CombineFilter();
-            }
+            находкиBindingSource.Filter = CombineFilter();
         }
 
         private void FilterDescriptionTextChanged(object sender, EventArgs e)
         {
-            if (FiltersEnabled && CheckBoxDescription.Checked && LostTable.DataSource == находкиBindingSource)
-            {
-                FiltersText[1] = "[Описание] LIKE'" + FilterDescription.Text + "%'";
-                находкиBindingSource.Filter = CombineFilter();
-            }
+            находкиBindingSource.Filter = CombineFilter();
         }
 
         private void FilterFIOTextChanged(object sender, EventArgs e)
         {
-            if (FiltersEnabled && CheckBoxFIO.Checked && LostTable.DataSource == находкиBindingSource)
-            {
-                FiltersText[2] = "[ФИО] LIKE'" + FilterFIO.Text + "%'";
-                находкиBindingSource.Filter = CombineFilter();
-            }
+            находкиBindingSource.Filter = CombineFilter();
         }
 
         private void FilterPhoneTextChanged(object sender, EventArgs e)
         {
-            if (FiltersEnabled && CheckBoxPhone.Checked && LostTable.DataSource == находкиBindingSource)
-            {
-                FiltersText[3] = "[Телефон] LIKE'" + FilterPhone.Text + "%'";
-                находкиBindingSource.Filter = CombineFilter();
-            }
+            находкиBindingSource.Filter = CombineFilter();
         }
 
         private void FilterSpotTextChanged(object sender, EventArgs e)
         {
-            if (FiltersEnabled && CheckBoxSpot.Checked && LostTable.DataSource == находкиBindingSource)
-            {
-                FiltersText[4] = "[Место находки] LIKE'" + FilterSpot.Text + "%'";
-                находкиBindingSource.Filter = CombineFilter();
-            }
-        }
-
+            находкиBindingSource.Filter = CombineFilter();
+        }  
+        
         private void FilterFoundTimeToValueChanged(object sender, EventArgs e)
         {
-            FilterFoundTimeFromValueChanged(sender, e);
+            находкиBindingSource.Filter = CombineFilter();
         }
 
         private void FilterRegTimeToValueChanged(object sender, EventArgs e)
         {
-            FilterRegTimeFromValueChanged(sender, e);
+            находкиBindingSource.Filter = CombineFilter();
         }
 
         private void FilterFoundTimeFromValueChanged(object sender, EventArgs e)
         {
-            if (FiltersEnabled && CheckBoxFoundTime.Checked && LostTable.DataSource == находкиBindingSource)
-            {
-                FiltersText[5] = string.Format("[Время находки] >= '{0}' AND [Время находки] <= '{1}'",
-                    FilterFoundTimeFrom.Value, FilterFoundTimeTo.Value);
-                находкиBindingSource.Filter = CombineFilter();
-            }
+            находкиBindingSource.Filter = CombineFilter();
         }
 
         private void FilterRegTimeFromValueChanged(object sender, EventArgs e)
         {
-            if (FiltersEnabled && CheckBoxRegTime.Checked && LostTable.DataSource == находкиBindingSource)
-            {
-                FiltersText[6] = string.Format("[Время регистрации] >= '{0}' AND [Время регистрации] <= '{1}'",
-                    FilterRegTimeFrom.Value, FilterRegTimeTo.Value);
-                находкиBindingSource.Filter = CombineFilter();
-            }
-        }
-
+            находкиBindingSource.Filter = CombineFilter();
+        }    
+        
         private void FilterSwitchButtonClick(object sender, EventArgs e)
         {
             if (!FiltersEnabled)
@@ -217,76 +174,81 @@ namespace Course
                     FilterFoundTimeFrom.Visible = FilterFoundTimeTo.Visible = FilterName.Visible = FilterPhone.Visible = FilterRegTimeFrom.Visible = FilterRegTimeTo.Visible =
                     DescriptionLabel.Visible = FIOLabel.Visible = FoundTimeLabel.Visible = NameLabel.Visible = PhoneLabel.Visible = RegTimeLabel.Visible = SpotLabel.Visible = false;
             }
+            находкиBindingSource.Filter = CombineFilter();
         }
 
         public String CombineFilter()
         {
             string CombinedFilter = String.Empty;
-            if (CheckBoxName.Checked)
-                CombinedFilter += FiltersText[0];
-            if (CheckBoxDescription.Checked)
-                CombinedFilter += (CheckBoxName.Checked ? " AND " : "") + FiltersText[1];
-            if (CheckBoxFIO.Checked)
-                CombinedFilter += (CheckBoxName.Checked || CheckBoxDescription.Checked ? " AND " : "") + FiltersText[2];
-            if (CheckBoxPhone.Checked)
-                CombinedFilter += (CheckBoxName.Checked || CheckBoxDescription.Checked || CheckBoxFIO.Checked ? " AND " : "") + FiltersText[3];
-            if (CheckBoxSpot.Checked)
-                CombinedFilter += (CheckBoxName.Checked || CheckBoxDescription.Checked || CheckBoxFIO.Checked || CheckBoxPhone.Checked ?
-                    " AND " : "") + FiltersText[4];
-            if (CheckBoxFoundTime.Checked)
-                CombinedFilter += (CheckBoxName.Checked || CheckBoxDescription.Checked || CheckBoxFIO.Checked || CheckBoxPhone.Checked
-                    || CheckBoxSpot.Checked ? " AND " : "") + FiltersText[5];
-            if (CheckBoxRegTime.Checked)
-                CombinedFilter += (CheckBoxName.Checked || CheckBoxDescription.Checked || CheckBoxFIO.Checked || CheckBoxPhone.Checked
-                    || CheckBoxFoundTime.Checked || CheckBoxSpot.Checked ? " AND " : "") + FiltersText[6];
+            FiltersText = new String[7]{
+                "[Название] LIKE'" + FilterName.Text + "%'",
+                "[Описание] LIKE'" + FilterDescription.Text + "%'",
+                "[ФИО] LIKE'" + FilterFIO.Text + "%'",
+                "[Телефон] LIKE'" + FilterPhone.Text + "%'",
+                "[Место находки] LIKE'" + FilterSpot.Text + "%'",
+                "[Время находки] >= '" + FilterFoundTimeFrom.Value.ToString() + "' AND [Время находки] <= '" + FilterFoundTimeTo.Value.ToString() + "'",
+                "[Время регистрации] >= '" + FilterRegTimeFrom.Value.ToString() + "' AND [Время регистрации] <= '" + FilterRegTimeTo.Value.ToString() + "'"
+            };
+            for (int a = 0; a < 7; ++a)
+            {
+                if (FiltersCheckers[a])
+                    CombinedFilter += FiltersText[a];
+                CombinedFilter += (CombinedFilter != "" && a != 6 && FiltersCheckers[a + 1] ? " AND " : "");
+            }
             //MessageBox.Show(CombinedFilter);
-            return CombinedFilter;
+            return (FiltersEnabled ? CombinedFilter : "");
         }
 
         private void CheckBoxNameStateChanged(object sender, EventArgs e)
         {
-            находкиBindingSource.Filter = CombineFilter();
+            FiltersCheckers[0] = CheckBoxName.Checked;
             if (!CheckBoxName.Checked)
                 FilterName.Text = "";
+            находкиBindingSource.Filter = CombineFilter();
         }
 
         private void CheckBoxDescriptionStateChanged(object sender, EventArgs e)
         {
-            находкиBindingSource.Filter = CombineFilter();
+            FiltersCheckers[1] = CheckBoxDescription.Checked;
             if (!CheckBoxDescription.Checked)
                 FilterDescription.Text = "";
+            находкиBindingSource.Filter = CombineFilter();
         }
 
         private void CheckBoxFIOStateChanged(object sender, EventArgs e)
         {
-            находкиBindingSource.Filter = CombineFilter();
+            FiltersCheckers[2] = CheckBoxFIO.Checked;
             if (!CheckBoxFIO.Checked)
                 FilterFIO.Text = "";
+            находкиBindingSource.Filter = CombineFilter();
         }
 
         private void CheckBoxPhoneStateChanged(object sender, EventArgs e)
         {
-            находкиBindingSource.Filter = CombineFilter();
+            FiltersCheckers[3] = CheckBoxPhone.Checked;
             if (!CheckBoxPhone.Checked)
                 FilterPhone.Text = "";
+            находкиBindingSource.Filter = CombineFilter();
+        }
+        
+        private void CheckBoxSpotCheckedChanged(object sender, EventArgs e)
+        {
+            FiltersCheckers[4] = CheckBoxSpot.Checked;
+            if (!CheckBoxSpot.Checked)
+                FilterSpot.Text = "";
+            находкиBindingSource.Filter = CombineFilter();
         }
 
         private void CheckBoxFoundTimeStateChanged(object sender, EventArgs e)
         {
+            FiltersCheckers[5] = CheckBoxFoundTime.Checked;
             находкиBindingSource.Filter = CombineFilter();
         }
 
         private void CheckBoxRegTimeStateChanged(object sender, EventArgs e)
         {
+            FiltersCheckers[6] = CheckBoxRegTime.Checked;
             находкиBindingSource.Filter = CombineFilter();
-        }
-
-
-        private void CheckBoxSpotCheckedChanged(object sender, EventArgs e)
-        {
-            находкиBindingSource.Filter = CombineFilter();
-            if (!CheckBoxSpot.Checked)
-                FilterSpot.Text = "";
         }
 
         private void LostsButtonClick(object sender, EventArgs e)
@@ -309,7 +271,34 @@ namespace Course
 
         private void логToolStripMenuItemClick(object sender, EventArgs e)
         {
-            MessageBox.Show(File.ReadAllText(Log));
+            if (Account == "admin")
+                System.Diagnostics.Process.Start("Log.txt");
+            else
+                MessageBox.Show("У вас нет доступа.");
+        }
+
+        private void изображениеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.BackColor = SystemColors.Control;
+            this.BackgroundImage = Properties.Resources.bg1;
+        }
+
+        private void белыйToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.BackgroundImage = null;
+            this.BackColor = Color.White;
+        }
+
+        private void серыйToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.BackgroundImage = null;
+            this.BackColor = Color.Gray;
+        }
+
+        private void случайныйЦветToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.BackgroundImage = null;
+            this.BackColor = Color.FromArgb(getRandom.Next(63, 255), getRandom.Next(63, 255), getRandom.Next(63, 255));
         }
     }
 }

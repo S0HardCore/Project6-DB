@@ -29,22 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             this.потериTableAdapter1 = new Course.CourseDataSet1TableAdapters.ПотериTableAdapter();
             this.LostsTable = new System.Windows.Forms.DataGridView();
-            this.кодDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.названиеDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.описаниеDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.местоПотериDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.времяПотериDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.фИОDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.телефонDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.времяОбращенияDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.находкиBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.courseDataSet11 = new Course.CourseDataSet1();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.учетнаяЗаписьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сотрудникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.статистикаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.логToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.режимРаботыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.просмотрToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,8 +72,19 @@
             this.NameLabel = new System.Windows.Forms.Label();
             this.FilterName = new System.Windows.Forms.TextBox();
             this.FormSwitchButton = new System.Windows.Forms.Button();
-            this.статистикаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.логToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.фонToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.изображениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.белыйToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.серыйToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.случайныйЦветToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.кодDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.названиеDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.описаниеDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.местоПотериDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.времяПотериDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.фИОDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.телефонDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.времяОбращенияDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.LostsTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.находкиBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.courseDataSet11)).BeginInit();
@@ -93,8 +101,19 @@
             this.LostsTable.AllowUserToDeleteRows = false;
             this.LostsTable.AllowUserToResizeColumns = false;
             this.LostsTable.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.LostsTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.LostsTable.AutoGenerateColumns = false;
             this.LostsTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.LostsTable.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.LostsTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.LostsTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.LostsTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.кодDataGridViewTextBoxColumn,
@@ -106,75 +125,13 @@
             this.телефонDataGridViewTextBoxColumn,
             this.времяОбращенияDataGridViewTextBoxColumn});
             this.LostsTable.DataSource = this.находкиBindingSource;
+            this.LostsTable.EnableHeadersVisualStyles = false;
+            this.LostsTable.GridColor = System.Drawing.SystemColors.HotTrack;
             this.LostsTable.Location = new System.Drawing.Point(12, 70);
             this.LostsTable.Name = "LostsTable";
             this.LostsTable.ReadOnly = true;
             this.LostsTable.Size = new System.Drawing.Size(900, 284);
             this.LostsTable.TabIndex = 0;
-            // 
-            // кодDataGridViewTextBoxColumn
-            // 
-            this.кодDataGridViewTextBoxColumn.DataPropertyName = "Код";
-            this.кодDataGridViewTextBoxColumn.HeaderText = "Код";
-            this.кодDataGridViewTextBoxColumn.Name = "кодDataGridViewTextBoxColumn";
-            this.кодDataGridViewTextBoxColumn.ReadOnly = true;
-            this.кодDataGridViewTextBoxColumn.Width = 53;
-            // 
-            // названиеDataGridViewTextBoxColumn
-            // 
-            this.названиеDataGridViewTextBoxColumn.DataPropertyName = "Название";
-            this.названиеDataGridViewTextBoxColumn.HeaderText = "Название";
-            this.названиеDataGridViewTextBoxColumn.Name = "названиеDataGridViewTextBoxColumn";
-            this.названиеDataGridViewTextBoxColumn.ReadOnly = true;
-            this.названиеDataGridViewTextBoxColumn.Width = 84;
-            // 
-            // описаниеDataGridViewTextBoxColumn
-            // 
-            this.описаниеDataGridViewTextBoxColumn.DataPropertyName = "Описание";
-            this.описаниеDataGridViewTextBoxColumn.HeaderText = "Описание";
-            this.описаниеDataGridViewTextBoxColumn.Name = "описаниеDataGridViewTextBoxColumn";
-            this.описаниеDataGridViewTextBoxColumn.ReadOnly = true;
-            this.описаниеDataGridViewTextBoxColumn.Width = 88;
-            // 
-            // местоПотериDataGridViewTextBoxColumn
-            // 
-            this.местоПотериDataGridViewTextBoxColumn.DataPropertyName = "Место потери";
-            this.местоПотериDataGridViewTextBoxColumn.HeaderText = "Место потери";
-            this.местоПотериDataGridViewTextBoxColumn.Name = "местоПотериDataGridViewTextBoxColumn";
-            this.местоПотериDataGridViewTextBoxColumn.ReadOnly = true;
-            this.местоПотериDataGridViewTextBoxColumn.Width = 103;
-            // 
-            // времяПотериDataGridViewTextBoxColumn
-            // 
-            this.времяПотериDataGridViewTextBoxColumn.DataPropertyName = "Время потери";
-            this.времяПотериDataGridViewTextBoxColumn.HeaderText = "Время потери";
-            this.времяПотериDataGridViewTextBoxColumn.Name = "времяПотериDataGridViewTextBoxColumn";
-            this.времяПотериDataGridViewTextBoxColumn.ReadOnly = true;
-            this.времяПотериDataGridViewTextBoxColumn.Width = 104;
-            // 
-            // фИОDataGridViewTextBoxColumn
-            // 
-            this.фИОDataGridViewTextBoxColumn.DataPropertyName = "ФИО";
-            this.фИОDataGridViewTextBoxColumn.HeaderText = "ФИО";
-            this.фИОDataGridViewTextBoxColumn.Name = "фИОDataGridViewTextBoxColumn";
-            this.фИОDataGridViewTextBoxColumn.ReadOnly = true;
-            this.фИОDataGridViewTextBoxColumn.Width = 59;
-            // 
-            // телефонDataGridViewTextBoxColumn
-            // 
-            this.телефонDataGridViewTextBoxColumn.DataPropertyName = "Телефон";
-            this.телефонDataGridViewTextBoxColumn.HeaderText = "Телефон";
-            this.телефонDataGridViewTextBoxColumn.Name = "телефонDataGridViewTextBoxColumn";
-            this.телефонDataGridViewTextBoxColumn.ReadOnly = true;
-            this.телефонDataGridViewTextBoxColumn.Width = 85;
-            // 
-            // времяОбращенияDataGridViewTextBoxColumn
-            // 
-            this.времяОбращенияDataGridViewTextBoxColumn.DataPropertyName = "Время обращения";
-            this.времяОбращенияDataGridViewTextBoxColumn.HeaderText = "Время обращения";
-            this.времяОбращенияDataGridViewTextBoxColumn.Name = "времяОбращенияDataGridViewTextBoxColumn";
-            this.времяОбращенияDataGridViewTextBoxColumn.ReadOnly = true;
-            this.времяОбращенияDataGridViewTextBoxColumn.Width = 124;
             // 
             // находкиBindingSource
             // 
@@ -190,7 +147,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.учетнаяЗаписьToolStripMenuItem,
-            this.режимРаботыToolStripMenuItem});
+            this.режимРаботыToolStripMenuItem,
+            this.фонToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1068, 24);
@@ -211,14 +169,27 @@
             // сотрудникиToolStripMenuItem
             // 
             this.сотрудникиToolStripMenuItem.Name = "сотрудникиToolStripMenuItem";
-            this.сотрудникиToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.сотрудникиToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.сотрудникиToolStripMenuItem.Text = "Сотрудники";
             this.сотрудникиToolStripMenuItem.Click += new System.EventHandler(this.сотрудникиToolStripMenuItemClick);
+            // 
+            // статистикаToolStripMenuItem
+            // 
+            this.статистикаToolStripMenuItem.Name = "статистикаToolStripMenuItem";
+            this.статистикаToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.статистикаToolStripMenuItem.Text = "Статистика";
+            // 
+            // логToolStripMenuItem
+            // 
+            this.логToolStripMenuItem.Name = "логToolStripMenuItem";
+            this.логToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.логToolStripMenuItem.Text = "Лог";
+            this.логToolStripMenuItem.Click += new System.EventHandler(this.логToolStripMenuItemClick);
             // 
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.выходToolStripMenuItem.Text = "Выход";
             this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
@@ -265,7 +236,7 @@
             this.CheckBoxSpot.Size = new System.Drawing.Size(110, 17);
             this.CheckBoxSpot.TabIndex = 36;
             this.CheckBoxSpot.Text = "По месту потери";
-            this.CheckBoxSpot.UseVisualStyleBackColor = true;
+            this.CheckBoxSpot.UseVisualStyleBackColor = false;
             this.CheckBoxSpot.CheckStateChanged += new System.EventHandler(this.CheckBoxSpotStateChanged);
             // 
             // CheckBoxRegTime
@@ -277,7 +248,7 @@
             this.CheckBoxRegTime.Size = new System.Drawing.Size(144, 17);
             this.CheckBoxRegTime.TabIndex = 35;
             this.CheckBoxRegTime.Text = "По времени обращения";
-            this.CheckBoxRegTime.UseVisualStyleBackColor = true;
+            this.CheckBoxRegTime.UseVisualStyleBackColor = false;
             this.CheckBoxRegTime.CheckStateChanged += new System.EventHandler(this.CheckBoxRegTimeStateChanged);
             // 
             // CheckBoxFoundTime
@@ -289,7 +260,7 @@
             this.CheckBoxFoundTime.Size = new System.Drawing.Size(123, 17);
             this.CheckBoxFoundTime.TabIndex = 34;
             this.CheckBoxFoundTime.Text = "По времени потери";
-            this.CheckBoxFoundTime.UseVisualStyleBackColor = true;
+            this.CheckBoxFoundTime.UseVisualStyleBackColor = false;
             this.CheckBoxFoundTime.CheckStateChanged += new System.EventHandler(this.CheckBoxFoundTimeStateChanged);
             // 
             // CheckBoxPhone
@@ -301,7 +272,7 @@
             this.CheckBoxPhone.Size = new System.Drawing.Size(92, 17);
             this.CheckBoxPhone.TabIndex = 33;
             this.CheckBoxPhone.Text = "По телефону";
-            this.CheckBoxPhone.UseVisualStyleBackColor = true;
+            this.CheckBoxPhone.UseVisualStyleBackColor = false;
             this.CheckBoxPhone.CheckStateChanged += new System.EventHandler(this.CheckBoxPhoneStateChanged);
             // 
             // CheckBoxFIO
@@ -313,7 +284,7 @@
             this.CheckBoxFIO.Size = new System.Drawing.Size(65, 17);
             this.CheckBoxFIO.TabIndex = 32;
             this.CheckBoxFIO.Text = "По ФИО";
-            this.CheckBoxFIO.UseVisualStyleBackColor = true;
+            this.CheckBoxFIO.UseVisualStyleBackColor = false;
             this.CheckBoxFIO.CheckStateChanged += new System.EventHandler(this.CheckBoxFIOStateChanged);
             // 
             // CheckBoxDescription
@@ -325,7 +296,7 @@
             this.CheckBoxDescription.Size = new System.Drawing.Size(92, 17);
             this.CheckBoxDescription.TabIndex = 31;
             this.CheckBoxDescription.Text = "По описанию";
-            this.CheckBoxDescription.UseVisualStyleBackColor = true;
+            this.CheckBoxDescription.UseVisualStyleBackColor = false;
             this.CheckBoxDescription.CheckStateChanged += new System.EventHandler(this.CheckBoxDescriptionStateChanged);
             // 
             // CheckBoxName
@@ -337,7 +308,7 @@
             this.CheckBoxName.Size = new System.Drawing.Size(92, 17);
             this.CheckBoxName.TabIndex = 30;
             this.CheckBoxName.Text = "По названию";
-            this.CheckBoxName.UseVisualStyleBackColor = true;
+            this.CheckBoxName.UseVisualStyleBackColor = false;
             this.CheckBoxName.CheckStateChanged += new System.EventHandler(this.CheckBoxNameStateChanged);
             // 
             // FilterSwitchButton
@@ -522,18 +493,110 @@
             this.FormSwitchButton.UseVisualStyleBackColor = true;
             this.FormSwitchButton.Click += new System.EventHandler(this.FindsButtonClick);
             // 
-            // статистикаToolStripMenuItem
+            // фонToolStripMenuItem
             // 
-            this.статистикаToolStripMenuItem.Name = "статистикаToolStripMenuItem";
-            this.статистикаToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.статистикаToolStripMenuItem.Text = "Статистика";
+            this.фонToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.изображениеToolStripMenuItem,
+            this.белыйToolStripMenuItem,
+            this.серыйToolStripMenuItem,
+            this.случайныйЦветToolStripMenuItem});
+            this.фонToolStripMenuItem.Name = "фонToolStripMenuItem";
+            this.фонToolStripMenuItem.Size = new System.Drawing.Size(42, 20);
+            this.фонToolStripMenuItem.Text = "Фон";
             // 
-            // логToolStripMenuItem
+            // изображениеToolStripMenuItem
             // 
-            this.логToolStripMenuItem.Name = "логToolStripMenuItem";
-            this.логToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.логToolStripMenuItem.Text = "Лог";
-            this.логToolStripMenuItem.Click += new System.EventHandler(this.логToolStripMenuItemClick);
+            this.изображениеToolStripMenuItem.Name = "изображениеToolStripMenuItem";
+            this.изображениеToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.изображениеToolStripMenuItem.Text = "Изображение";
+            this.изображениеToolStripMenuItem.Click += new System.EventHandler(this.изображениеToolStripMenuItem_Click);
+            // 
+            // белыйToolStripMenuItem
+            // 
+            this.белыйToolStripMenuItem.Name = "белыйToolStripMenuItem";
+            this.белыйToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.белыйToolStripMenuItem.Text = "Белый";
+            this.белыйToolStripMenuItem.Click += new System.EventHandler(this.белыйToolStripMenuItem_Click);
+            // 
+            // серыйToolStripMenuItem
+            // 
+            this.серыйToolStripMenuItem.Name = "серыйToolStripMenuItem";
+            this.серыйToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.серыйToolStripMenuItem.Text = "Серый";
+            this.серыйToolStripMenuItem.Click += new System.EventHandler(this.серыйToolStripMenuItem_Click);
+            // 
+            // случайныйЦветToolStripMenuItem
+            // 
+            this.случайныйЦветToolStripMenuItem.Name = "случайныйЦветToolStripMenuItem";
+            this.случайныйЦветToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.случайныйЦветToolStripMenuItem.Text = "Случайный цвет";
+            this.случайныйЦветToolStripMenuItem.Click += new System.EventHandler(this.случайныйЦветToolStripMenuItem_Click);
+            // 
+            // кодDataGridViewTextBoxColumn
+            // 
+            this.кодDataGridViewTextBoxColumn.DataPropertyName = "Код";
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            this.кодDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.кодDataGridViewTextBoxColumn.HeaderText = "Код";
+            this.кодDataGridViewTextBoxColumn.Name = "кодDataGridViewTextBoxColumn";
+            this.кодDataGridViewTextBoxColumn.ReadOnly = true;
+            this.кодDataGridViewTextBoxColumn.Width = 52;
+            // 
+            // названиеDataGridViewTextBoxColumn
+            // 
+            this.названиеDataGridViewTextBoxColumn.DataPropertyName = "Название";
+            this.названиеDataGridViewTextBoxColumn.HeaderText = "Название";
+            this.названиеDataGridViewTextBoxColumn.Name = "названиеDataGridViewTextBoxColumn";
+            this.названиеDataGridViewTextBoxColumn.ReadOnly = true;
+            this.названиеDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // описаниеDataGridViewTextBoxColumn
+            // 
+            this.описаниеDataGridViewTextBoxColumn.DataPropertyName = "Описание";
+            this.описаниеDataGridViewTextBoxColumn.HeaderText = "Описание";
+            this.описаниеDataGridViewTextBoxColumn.Name = "описаниеDataGridViewTextBoxColumn";
+            this.описаниеDataGridViewTextBoxColumn.ReadOnly = true;
+            this.описаниеDataGridViewTextBoxColumn.Width = 81;
+            // 
+            // местоПотериDataGridViewTextBoxColumn
+            // 
+            this.местоПотериDataGridViewTextBoxColumn.DataPropertyName = "Место потери";
+            this.местоПотериDataGridViewTextBoxColumn.HeaderText = "Место потери";
+            this.местоПотериDataGridViewTextBoxColumn.Name = "местоПотериDataGridViewTextBoxColumn";
+            this.местоПотериDataGridViewTextBoxColumn.ReadOnly = true;
+            this.местоПотериDataGridViewTextBoxColumn.Width = 94;
+            // 
+            // времяПотериDataGridViewTextBoxColumn
+            // 
+            this.времяПотериDataGridViewTextBoxColumn.DataPropertyName = "Время потери";
+            this.времяПотериDataGridViewTextBoxColumn.HeaderText = "Время потери";
+            this.времяПотериDataGridViewTextBoxColumn.Name = "времяПотериDataGridViewTextBoxColumn";
+            this.времяПотериDataGridViewTextBoxColumn.ReadOnly = true;
+            this.времяПотериDataGridViewTextBoxColumn.Width = 93;
+            // 
+            // фИОDataGridViewTextBoxColumn
+            // 
+            this.фИОDataGridViewTextBoxColumn.DataPropertyName = "ФИО";
+            this.фИОDataGridViewTextBoxColumn.HeaderText = "ФИО";
+            this.фИОDataGridViewTextBoxColumn.Name = "фИОDataGridViewTextBoxColumn";
+            this.фИОDataGridViewTextBoxColumn.ReadOnly = true;
+            this.фИОDataGridViewTextBoxColumn.Width = 55;
+            // 
+            // телефонDataGridViewTextBoxColumn
+            // 
+            this.телефонDataGridViewTextBoxColumn.DataPropertyName = "Телефон";
+            this.телефонDataGridViewTextBoxColumn.HeaderText = "Телефон";
+            this.телефонDataGridViewTextBoxColumn.Name = "телефонDataGridViewTextBoxColumn";
+            this.телефонDataGridViewTextBoxColumn.ReadOnly = true;
+            this.телефонDataGridViewTextBoxColumn.Width = 76;
+            // 
+            // времяОбращенияDataGridViewTextBoxColumn
+            // 
+            this.времяОбращенияDataGridViewTextBoxColumn.DataPropertyName = "Время обращения";
+            this.времяОбращенияDataGridViewTextBoxColumn.HeaderText = "Время обращения";
+            this.времяОбращенияDataGridViewTextBoxColumn.Name = "времяОбращенияDataGridViewTextBoxColumn";
+            this.времяОбращенияDataGridViewTextBoxColumn.ReadOnly = true;
+            this.времяОбращенияDataGridViewTextBoxColumn.Width = 112;
             // 
             // Form3
             // 
@@ -623,6 +686,14 @@
         private System.Windows.Forms.TextBox FilterName;
         private System.Windows.Forms.Button FormSwitchButton;
         private System.Windows.Forms.BindingSource находкиBindingSource;
+        private System.Windows.Forms.ToolStripMenuItem сотрудникиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem статистикаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem логToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem фонToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem изображениеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem белыйToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem серыйToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem случайныйЦветToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn кодDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn названиеDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn описаниеDataGridViewTextBoxColumn;
@@ -631,8 +702,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn фИОDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn телефонDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn времяОбращенияDataGridViewTextBoxColumn;
-        private System.Windows.Forms.ToolStripMenuItem сотрудникиToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem статистикаToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem логToolStripMenuItem;
     }
 }
